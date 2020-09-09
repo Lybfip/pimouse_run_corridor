@@ -31,6 +31,9 @@ class WallTraceTest(unittest.TestCase):
         self.assertTrue(left > right > 0, "can't right turn by left_side sensor")
 
         left, right = self.set_and_get(50, 50, 50, 50) # without upper
+        self.assertTrue(0 < left == right, "can't forward. left=" + str(left) + ", right=" + str(right))
+
+        left, right = self.set_and_get(50, 49, 50, 50) # without upper
         self.assertTrue(0 < left < right, "can't left turn. left=" + str(left) + ", right=" + str(right))
 
 if __name__ == '__main__':
